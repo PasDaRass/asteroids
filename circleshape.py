@@ -19,3 +19,10 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt):
         # must override
         pass
+
+    def collision_check(self, other):
+        if pygame.math.Vector2.distance_to(self.position, other.position) <= (
+            self.radius + (other.radius / 2.5 )): # makes up for ship shape (PLAYER_RADIUS is now 8)       
+            return True
+        else:
+            return False
